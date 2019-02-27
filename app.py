@@ -1,11 +1,15 @@
 import cherrypy
+from jinja2 import Environment, FileSystemLoader
 import os
+
+env = Environment(loader=FileSystemLoader('.'))
 
 
 class HelloWorld(object):
     @cherrypy.expose
     def index(self):
-        return "Hello world!"
+        tmpl = env.get_template('jinja_table_template.html')
+        return tmpl.render(table=[['a', 'b', 'c'], ['d', 'e', 'f']])
 
 
 config = {
@@ -16,3 +20,5 @@ config = {
 }
 
 cherrypy.quickstart(HelloWorld(), '/', config=config)
+
+# cherrypy.quickstart(HelloWorld(), '/')
