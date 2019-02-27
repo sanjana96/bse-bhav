@@ -3,7 +3,7 @@ from jinja2 import Environment, FileSystemLoader
 import os
 import csv
 
-env = Environment(loader=FileSystemLoader('.'))
+env = Environment(loader=FileSystemLoader('templates'))
 
 
 class HelloWorld(object):
