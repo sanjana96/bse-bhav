@@ -20,6 +20,7 @@ class HelloWorld(object):
         table = df.values.tolist()
         # TODO: Take column number of name as argument in template
         # TODO: Pass header, make it pretty
+        # TODO: Block all future dates
         return tmpl.render(heading='', table=table)
 
 
@@ -30,7 +31,7 @@ config = {
     }
 }
 
-cherrypy.quickstart(HelloWorld(), '/', config=config)
+# cherrypy.quickstart(HelloWorld(), '/', config=config)
 
 
-# cherrypy.quickstart(HelloWorld(), '/')
+cherrypy.quickstart(HelloWorld(), '/')
