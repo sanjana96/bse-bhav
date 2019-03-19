@@ -21,7 +21,7 @@ class HelloWorld(object):
         zipfile = ZipFile(BytesIO(resp.read()))
         df = pd.read_csv(zipfile.open(csv_path))
         table = df.values.tolist()
-        return tmpl.render(heading='', table=table)
+        return tmpl.render(heading=list(df.keys()), table=table)
 
     @cherrypy.expose
     def index(self):
