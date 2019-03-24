@@ -25,7 +25,8 @@ class HelloWorld(object):
 
     @cherrypy.expose
     def index(self):
-        yesterday_date = str(datetime.utcnow() - timedelta(1)).split()[0]
+        # TODO: Change this to take non market days into consideration
+        yesterday_date = str(datetime.utcnow() - timedelta(2)).split()[0]
         return self.create_table(yesterday_date)
         # TODO: Take column number of name as argument in template
         # TODO: Pass header, make it pretty
